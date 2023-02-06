@@ -1,0 +1,19 @@
+server:
+  port: 3000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: PROXY_APP
+          uri: http://localhost:3002/
+          predicates:
+            - Path=/service/**
+
+okta:
+  oauth2:
+    issuer: https://dev-68688515.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oa888qe2e1eIwQeG5d7
+    client-secret: qDAHC9QiP6EVH9HS7jHCcaaC2XlObaXAJ3yaZpW5
+    scopes: openid, profile, email, offline_access
